@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-light navbar-black">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'apartment' %}">Lodging resort</a>
+      <a class="navbar-brand" href="{% url 'vacant' %}">order a room</a>
+
+
+
+
+    </div>
+    <div class="col-sm-6 col-md-6">
+            {% if user.is_authenticated %}
+
+            <ul>
+              <a class="navbar-brand" href="/admin">Admin</a>
+              <a class="navbar-brand" href="{% url 'profile' %}">Profile</a>
+
+                <a href="" class="dropdown" class="navbar-brand" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">{{request.user.username}}
+                          <span class="caret"></span>
+                      </a>
+
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="/accounts/password/change">Change Password</a>
+                  </li>
+                  <li>
+                    <a href="/logout">Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            {% else %}
+
+              <a  class="navbar-brand right" href="{% url 'apartment' %}"><span class="glyphicon glyphicon-user">Sign in</span></a>
+
+            {% endif %}
+          </div>
+  </div>
+</nav>
+</body>
+</html>
