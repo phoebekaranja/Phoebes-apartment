@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+
+{% load bootstrap3 %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    {% block styles %}
+      {% bootstrap_css %}
+       <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+       <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!--Import materialize.css-->
+     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    {% endblock %}
+  </head>
+
+    {% block content %}
+    <div class="container">
+        <body class="view hm-black-strong">
+          <style>
+            body{background: url(../static/loudge.jpeg)}
+          </style> 
+     
+      </div>
+{%endblock%}
+
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+
+  </body>
+
+</div>
+
+  {% endblock %}
+
+</html>

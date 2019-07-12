@@ -1,0 +1,74 @@
+{%extends 'base.html'%}
+
+{% load bootstrap3 %}
+
+
+{% block content %}
+{{block.super}}
+<body style="background-color:#F1F3F3">
+<div class="container">
+
+<ul>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Room catered for visitors<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            {% for house in vacant%}
+          <li><a href="{% url 'house' 1 %}">C01</a></li>
+
+          <li><a href="{% url 'house' 2 %}">C02</a></li>
+          <li><a href="{% url 'house' 3 %}">C03</a></li>
+
+
+        </ul>
+      </li>
+
+
+<h2 class="text-center">Requests made</h2>
+<div class="row">
+{% for request in requests %}
+<table class="table">
+<thead class="thead">
+<tr>
+  <th>Name</th>
+  <th>Telephone</th>
+  <th>Email</th>
+  <th>House requested</th>
+  <th>Time of request</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>{{request.name}}</td>
+  <td>{{request.phone_number}}</td>
+  <td>{{request.email}}</td>
+  <td>{{request.house}}</td>
+  <td>{{request.upload_time}}</td>
+
+</tr>
+</tbody>
+</table>
+
+
+{% endfor %}
+
+
+</div>
+<h2 class="text-center">Receipts received</h2>
+
+<div class="row">
+{% for receipt in receipts %}
+<div class="col-md-4">
+<img src="{{receipt.receipt_image.url}}" class="img-responsive" alt="Image">
+<p><strong>Tenant</strong>{{receipt.profile}}</p>
+<p><strong>Room number</strong>{{receipt.room_number}}</p>
+<p><strong>Time</strong>{{receipt.upload_time}}</p>
+
+
+</div>
+{% endfor %}
+
+</div>
+</div>
+</body>
+{% endblock %}
